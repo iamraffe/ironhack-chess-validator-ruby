@@ -36,11 +36,14 @@ class Board
 		@board[coordinates.first][coordinates.last]
 	end
 
-	def handle_move(origin, destination)
-		move = @parser.parse_move([origin, destination])
+	def validate_move(move)
 		cell = who_is_at(move[:origin])
 		piece = @parser.parse_piece(cell)
 		puts @validator.verify_move(self, piece, move[:origin], move[:destination]) ? 'LEGAL' : 'ILLEGAL'
 	end
 
+	def handle_move(origin, destination)
+		move = @parser.parse_move([origin, destination])
+		empty?(move[:origin].first, move[:origin].last) ? 'ILLEGAL' : validate_move(move)		
+	end
 end
