@@ -36,10 +36,13 @@ class Board
 		@board[coordinates.first][coordinates.last]
 	end
 
-	def verify_move(piece, origin, destination)
+	def verify_move(origin, destination)
 		move = @parser.parse_move([origin, destination])
-		# binding.pry
+		at_cell = who_is_at(move[:origin])
+		piece = @parser.parse_piece(at_cell)
+		binding.pry
 		puts "LEGAL" if @validator.verify_move(self, piece, move[:origin], move[:destination])
 		# binding.pry
 	end
+
 end

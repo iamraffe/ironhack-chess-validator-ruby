@@ -1,6 +1,6 @@
 
-class Rook < Piece
-	attr_reader :valid_moves
+
+class Pawn < Piece
 
 	def establish_valid_moves
 		Array(1..7).each do |n|
@@ -8,8 +8,5 @@ class Rook < Piece
                 				[0,  n], [0, -n]
     end
 	end
-
-	# def attempt_move(board, origin, destination)
-	# 	board.verify_move(self, origin, destination)
-	# end
+	
 end

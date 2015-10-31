@@ -3,6 +3,14 @@ class Parser
 		a: 0, b: 1, c: 2, d: 3, e: 4, f: 5, g: 6, h: 7
 	}
 	ROWS = [0, 1, 2, 3, 4, 5, 6, 7]
+	COLORS = {
+		b: 'black',
+		w: 'white'
+	}
+	PIECES = {
+		r: Rook,
+		p: Pawn
+	}
 	def parse_move(move)
 		parsed_move = move.map do |coordinate|
 			col, row = coordinate.split('')
@@ -11,4 +19,8 @@ class Parser
 		end
 		{origin: parsed_move.first, destination: parsed_move.last}
 	end	
+
+	def parse_piece(piece)
+		PIECES[piece[:piece].to_s.split('').last.downcase.to_sym].new(COLORS[piece[:piece].to_s.split('').first.to_sym])
+	end
 end
