@@ -4,7 +4,9 @@ require_relative "board.rb"
 require_relative "rook.rb"
 require_relative "chessvalidator.rb"
 require_relative "pawn.rb"
+require_relative "knight.rb"
 require_relative "parser.rb"
+
 
 board = Board.new
 # coordinates = 'a1 a2'.split(' ');

@@ -9,7 +9,8 @@ class Parser
 	}
 	PIECES = {
 		r: Rook,
-		p: Pawn
+		p: Pawn,
+		n: Knight,
 	}
 	def parse_move(move)
 		parsed_move = move.map do |coordinate|
