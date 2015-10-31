@@ -8,10 +8,12 @@ require_relative "knight.rb"
 require_relative "parser.rb"
 
 
-board = Board.new
+# board = Board.new
+# 
+validator = ChessValidator.new
 
 moves = File.readlines('simple_moves.txt').map{|line| line.chomp}
 moves.each do |move| 
 	coordinates = move.split(' ') 
-	board.handle_move(coordinates.first, coordinates.last)
+	puts validator.handle_move(coordinates.first, coordinates.last)
 end

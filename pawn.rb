@@ -6,7 +6,7 @@ class Pawn < Piece
     # @valid_moves.push [-1, 1], [1, 1]
 	end
 
-	def valid_move?(board, origin, destination)
+	def valid_move?(origin, destination)
 		add_pawn_extra_space if is_first_move?(origin)
 		# add_pawn_eating_space if wants_to_eat?(board, destination)
 		@current_move = [origin.first - destination.first, origin.last - destination.last]

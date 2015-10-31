@@ -6,7 +6,7 @@ class Knight < Piece
 
 	end
 
-	def valid_move?(board, origin, destination)
+	def valid_move?(origin, destination)
 		@current_move = [origin.first - destination.first, origin.last - destination.last]
 		@valid_moves.include?(@current_move) || @valid_moves.include?(@current_move.reverse)
 	end
