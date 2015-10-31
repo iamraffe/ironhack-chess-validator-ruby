@@ -9,7 +9,23 @@ class Rook < Piece
     end
 	end
 
-	# def attempt_move(board, origin, destination)
-	# 	board.verify_move(self, origin, destination)
+	def valid_move?(board, origin, destination)
+		@current_move = [origin.first - destination.first, origin.last - destination.last]
+		@valid_moves.include?(@current_move)
+	end
+
+	# def valid_move?(board, piece, origin, destination)
+	# 	valid_move?(piece, origin, destination) &&
+	# 	empty_pathway?(board, origin, destination) &&
+	# 	destination_empty?(destination.first, destination.last)
 	# end
+
+	def empty_pathway?(board, origin, destination)
+		@current_move.first != 0 ?
+			horizontal_pathway(board, origin, destination) :
+			vertical_pathway(board, origin, destination)
+	end
+
+
+
 end

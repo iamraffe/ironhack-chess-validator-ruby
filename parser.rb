@@ -21,6 +21,8 @@ class Parser
 	end	
 
 	def parse_piece(piece)
-		PIECES[piece[:piece].to_s.split('').last.downcase.to_sym].new(COLORS[piece[:piece].to_s.split('').first.to_sym])
+		color_symbol = COLORS[piece[:piece].to_s.split('').first.to_sym]
+		piece_symbol = PIECES[piece[:piece].to_s.split('').last.downcase.to_sym]
+		piece_symbol.new(color_symbol)
 	end
 end
