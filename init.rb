@@ -11,9 +11,12 @@ rook = Rook.new
 # binding.pry
 #rook.attempt_move(board, [4,7], [7,7])
 
-rook.attempt_move(board, [4,7], [5,6])
+# rook.attempt_move(board, [4,7], [5,6])
 
 # rook.attempt_move(board, [7,7], [7,6])
-
-# TBC
-# rook.attempt_move(board, 'a2')
+moves = File.readlines('simple_moves.txt').map{|line| line.chomp}
+binding.pry
+moves.each do |move| 
+	coordinates = move.split(' ') 
+	rook.attempt_move(board, coordinates.first, coordinates.last)
+end

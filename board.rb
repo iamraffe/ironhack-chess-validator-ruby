@@ -2,6 +2,7 @@ class Board
 	def initialize()
 		default_board
 		@validator = ChessValidator.new
+		@parser = Parser.new
 	end
 	
 	def default_board
@@ -28,6 +29,7 @@ class Board
 
 	def empty?(x,y)
 		@board[x][y].nil? ? true : false
+		# binding.pry
 	end
 
 	def who_is_at(coordinates)
@@ -35,7 +37,9 @@ class Board
 	end
 
 	def verify_move(piece, origin, destination)
-		puts "NOW WE HANDLE DE MOVE" if @validator.verify_move(self, piece, origin, destination)
+		move = @parser.parse_move([origin, destination])
+		# binding.pry
+		puts "LEGAL" if @validator.verify_move(self, piece, move[:origin], move[:destination])
 		# binding.pry
 	end
 end
